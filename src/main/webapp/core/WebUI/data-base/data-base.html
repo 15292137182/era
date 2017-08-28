@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="right">
+        <el-col :span="24">
+            <el-row style="margin-top: 5px; margin-bottom:200px;" type="flex" class="row-bg" justify="center">
+                    <el-col :span="23">
+                        <template>
+                            <el-table :data="rightData" border style="width: 100%;">
+                                <el-table-column  prop="tableCname" label="字段中文名称" width="">
+                                </el-table-column>
+                                <el-table-column  prop="tableEname" label="字段英文名称" width="">
+                                </el-table-column>
+                                <el-table-column  prop="desp" label="说明" width="">
+                                </el-table-column>
+                            </el-table>
+                        </template>
+                    </el-col>
+            </el-row>
+            <el-row style="margin-top: 30px">
+                <el-col :span="24" style="text-align:center">
+                    <el-button type="primary" @click="conformEvent">确定</el-button>
+                </el-col>
+            </el-row>
+        </el-col>
+    </div>
+</body>
+<script src="data-base.js"></script>
+</html>

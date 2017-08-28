@@ -1,0 +1,90 @@
+/**
+ * Created by andim on 2017/8/9.
+ */
+var addDataSet = new Vue({
+    el:'#addDataSet',
+    data:{
+        labelPosition:"right",
+        formTable:{
+            datasetCode:'',
+            nameInput:'',
+            typeInput:'',
+            content:'',
+            desp:'',
+            version:''
+        },
+        isEdit:'',//是否编辑
+        addUrl:serverPath+'/dataSetConfig/add',//新增
+        editUrl:serverPath+'/dataSetConfig/modify',//编辑
+    },
+    methods:{
+        checkIsNull(){//非空验证
+            var data = [
+                this.$refs.nameInput,
+                this.$refs.typeInput
+            ];
+            for(var i=0;i<data.length;i++){
+                if(data[i].value==''){
+                    ibcpLayer.ShowMsg(data[i].placeholder);
+                    return false;
+                }
+            }
+            return true;
+        },
+        addSet(){//新增
+            this.$http.jsonp(this.addUrl,{
+                datasetName:this.formTable.nameInput,
+                datasetType:this.formTable.typeInput,
+                datasetContent:this.formTable.content,
+                desp:this.formTable.desp
+            },{
+                jsonp:'callback'
+            }).then(function(res){
+                showMsg.MsgOk(dataSetConfig,res);
+                if(res.data.state==1){
+                    ibcpLayer.Close(dataSetConfigButton.divIndex);
+                    dataSetConfig.searchResTable();
+                }
+            },function(){
+                showMsg.MsgError(dataSetConfig);
+            })
+        },
+        editSet(){//编辑
+            this.$http.jsonp(this.editUrl,{
+                rowId:dataSetConfig.rowObjId,
+                datasetName:this.formTable.nameInput,
+                datasetType:this.formTable.typeInput,
+                datasetContent:this.formTable.content,
+                desp:this.formTable.desp
+            },{
+                jsonp:'callback'
+            }).then(function(res){
+                showMsg.MsgOk(dataSetConfig,res);
+                if(res.data.state==1){
+                    ibcpLayer.Close(dataSetConfigButton.divIndex);
+                    dataSetConfig.searchResTable();
+                }
+            },function(){
+                showMsg.MsgError(dataSetConfig);
+            })
+        },
+        conformEvent(){//确定
+            if(!this.isEdit){//新增
+                if(this.checkIsNull()){
+                    addObj.addOk(function(){
+                        addDataSet.addSet();
+                    })
+                }
+            }else{//编辑
+                if(this.checkIsNull()){
+                    editObj.editOk(function(){
+                        addDataSet.editSet();
+                    })
+                }
+            }
+        },
+        cancel(){//取消
+            ibcpLayer.Close(dataSetConfigButton.divIndex);
+        }
+    }
+})

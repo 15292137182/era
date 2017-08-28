@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>登录</title>
+  <link rel="stylesheet" href="core/webjar/plugins/layui/css/layui.css" media="all"/>
+  <link rel="stylesheet" href="core/webjar/plugins/css/login.css"/>
+
+  <script src="core/WebUI/Public/publicjs.js"></script>
+</head>
+
+<body class="beg-login-bg">
+<div class="beg-login-box">
+  <header>
+    <h1>后台登录</h1>
+  </header>
+  <div class="beg-login-main">
+    <form action="javascript:" class="layui-form" method="post" id="loginForm">
+      <div class="layui-form-item">
+        <label class="beg-login-icon">
+          <i class="layui-icon">&#xe612;</i>
+        </label>
+        <input type="text" name="username" lay-verify="username" autocomplete="off"
+               placeholder="这里输入登录名" class="layui-input">
+      </div>
+      <div class="layui-form-item">
+        <label class="beg-login-icon">
+          <i class="layui-icon">&#xe642;</i>
+        </label>
+        <input type="password" name="password" lay-verify="password" autocomplete="off"
+               placeholder="这里输入密码" class="layui-input">
+      </div>
+      <div class="layui-form-item">
+        <div class="beg-pull-left beg-login-remember">
+          <a id="ModifyPassword">修改密码</a>
+        </div>
+        <div class="beg-pull-right">
+          <button class="layui-btn layui-btn-primary" lay-submit lay-filter="login" id="login">
+            <i class="layui-icon">&#xe650;</i> 登录
+          </button>
+        </div>
+        <div class="beg-clear"></div>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <p>版权所有 © www.batchsight.com</p>
+  </footer>
+</div>
+<!--<script type="text/javascript" src="plugins/layui/layui.js"></script>-->
+<!--<script>-->
+<!--layui.use(['layer', 'form'], function() {-->
+<!--var layer = layui.layer,-->
+<!--$ = layui.jquery,-->
+<!--form = layui.form();-->
+<!---->
+<!--form.on('submit(login)',function(data){-->
+<!---->
+<!--location.href='index.html';-->
+<!--return false;-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+<script>
+  (function ($) {
+    $('#login').click(function () {
+
+      if (!$("input[name=username]").val()) {
+        $("input[name=username]").focus();
+        ibcpLayer.ShowMsg("用户名不能为空");
+        return false;
+      }
+      if (!$("input[name=password]").val()) {
+        $("input[name=password]").focus();
+        ibcpLayer.ShowMsg("密码不能为空");
+        return false;
+      }
+      var t = $('#loginForm').serializeArray();
+      $.ajax({
+        url: getRootPath() + "/system/login",
+        data: t,
+        async: true,
+        type: "post",
+        dataType: "json",
+        timeout: -1,
+        success: function (result, status, xhr) {
+          if (status === "success") {
+            if (result.hasOwnProperty("state") && parseInt(result.state) !== -1) {
+              window.location.href = getRootPath() + "/index.html";
+            } else {
+              ibcpLayer.ShowMsg(result.message || "服务器相应异常，请联系管理员或稍后重试！");
+            }
+          } else {
+            ibcpLayer.ShowMsg(result.message || "服务器相应异常，请联系管理员或稍后重试！");
+          }
+        },
+        error: function () {
+          ibcpLayer.ShowMsg('链接已丢失，请尝试重新登录！', 2000);
+        }
+      });
+    });
+  })($);
+
+</script>
+</body>
+
+</html>
