@@ -16,7 +16,7 @@ var resTop=new Vue({
     methods:{
         addResEvent() {
             operate = 1;
-            var htmlUrl = 'resource-add.html';
+            var htmlUrl = 'properties-add.html';
             divIndex = ibcpLayer.ShowDiv(htmlUrl, '新增系统资源配置', '400px', '340px');
         },
     }
@@ -39,7 +39,7 @@ var resCol=new Vue({
         },
         editResEvent() {
             operate = 2;
-            var htmlUrl = 'resource-add.html';
+            var htmlUrl = 'properties-add.html';
             divIndex = ibcpLayer.ShowDiv(htmlUrl, '编辑系统资源配置', '400px', '300px', function () {
                 //code值
                 resAdd.colForm.codeInput = resCol.currentValue.confKey;  //编辑时候的键

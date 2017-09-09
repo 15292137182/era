@@ -14,22 +14,22 @@
     <el-form :label-position="labelPosition" label-width="80px" :model="formTable">
         <el-row type="flex" class="row-bg">
             <el-col :span="20" :offset="1">
-                <el-form-item label="表schema">
-                    <el-input placeholder="请输入表schema" v-model="formTable.name" ref="name"></el-input>
+                <el-form-item label="业务表">
+                    <el-input placeholder="请输入代码" v-model="formTable.name" ref="name"></el-input>
                 </el-form-item>
             </el-col>
         </el-row>
         <el-row type="flex" class="row-bg">
             <el-col :span="20" :offset="1">
                 <el-form-item label="表英文名">
-                    <el-input placeholder="请输入表英文名" v-model="formTable.Ename" ref="Ename"></el-input>
+                    <el-input placeholder="请输入名称" v-model="formTable.Ename" ref="Ename"></el-input>
                 </el-form-item>
             </el-col>
         </el-row>
         <el-row type="flex" class="row-bg">
             <el-col :span="20" :offset="1">
                 <el-form-item label="表中文名">
-                    <el-input placeholder="请输入表中文名" v-model="formTable.Cname" ref="Came"></el-input>
+                    <el-input placeholder="请输入描述" v-model="formTable.Cname" ref="Came"></el-input>
                 </el-form-item>
             </el-col>
         </el-row>

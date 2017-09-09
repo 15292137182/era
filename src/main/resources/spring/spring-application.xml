@@ -28,5 +28,6 @@
 
   <!-- 引入其他配置文件 -->
   <import resource="spring-common.xml"/>
+  <import resource="spring-mybatis.xml"/>
 
 </beans>

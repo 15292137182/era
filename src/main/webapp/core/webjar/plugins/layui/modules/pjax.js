@@ -212,7 +212,7 @@ layui.define(['jquery'], function(exports) {
 
 			options.beforeSend = function(xhr, settings) {
 				// No timeout for non-GET requests
-				// Its not safe to request the resource again with a fallback method.
+				// Its not safe to request the properties again with a fallback method.
 				if(settings.type !== 'GET') {
 					settings.timeout = 0
 				}

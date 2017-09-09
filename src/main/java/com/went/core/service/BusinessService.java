@@ -1,16 +1,30 @@
 package com.went.core.service;
 
 import com.went.core.base.BaseService;
+import com.went.core.entity.BusinessInfo;
+import com.went.core.mapper.BusinessMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
+import java.util.List;
+
 
 /**
+ *
  * Created by Administrator on 2017/8/26.
  */
 @Service
 public class BusinessService implements BaseService{
+
+    @Autowired
+    BusinessMapper businessMapper;
+
+    public List<BusinessInfo> selectAll(Map map) {
+
+        List<BusinessInfo> businessInfos = businessMapper.selectAll();
+        return businessInfos;
+    }
 
     @Override
     public List<Map<String, Object>> select(Map map) {

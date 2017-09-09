@@ -1,6 +1,11 @@
 package com.went.core.utils;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 import static com.went.core.base.BaseConstants.STATUS_SUCCESS;
@@ -75,4 +80,17 @@ public class ServiceResult<T> implements Serializable {
   public static ServiceResult Msg(int state,String message){
     return new ServiceResult(null, state,message);
   }
+
+//  public PageResult<Map<String, Object>> selectPage(int pageNum,int pageSize){
+//    Page<Map<String,Object>> pageTask = PageHelper.startPage(pageNum, pageSize);
+//    List<Map<String, Object>> result = data;
+//    PageInfo pageInfo = new PageInfo(result);
+//    PageResult<Map<String, Object>> pageResult = new PageResult<>(result);
+//    pageResult.setTotal(pageInfo.getTotal());
+//    pageResult.setPageNum(pageInfo.getPageNum());
+//    pageResult.setPageSize(pageInfo.getPageSize());
+//    return pageResult;
+//  }
+
+
 }

@@ -284,12 +284,12 @@ public class UtilsTool {
 //   * @return 返回properies中value值
 //   */
 //  final static public String loadProperties(String key) {
-//    Properties resource = new Properties();
+//    Properties properties = new Properties();
 //    InputStream resourceAsStream = UtilsTool.class.getClassLoader()
-//            .getResourceAsStream("resource/sequence.resource");
+//            .getResourceAsStream("properties/sequence.properties");
 //    try {
-//      resource.load(resourceAsStream);
-//      String propertys = resource.getProperty(key);
+//      properties.load(resourceAsStream);
+//      String propertys = properties.getProperty(key);
 //      return propertys;
 //    } catch (IOException e) {
 //    } finally {

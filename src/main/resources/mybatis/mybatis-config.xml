@@ -23,9 +23,9 @@
   </settings>
 
   <!-- 扫描包下的类注解@Alias -->
-  <typeAliases>
-    <package name="com.went"/>
-  </typeAliases>
+  <!--<typeAliases>-->
+    <!--<package name="com.went"/>-->
+  <!--</typeAliases>-->
 
   <plugins>
     <plugin interceptor="com.github.pagehelper.PageHelper">

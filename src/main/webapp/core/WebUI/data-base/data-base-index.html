@@ -56,7 +56,7 @@
                     <el-row>
                         <el-col :span="24">
                             <el-col :xs="24" :sm="24" :md="24">
-                                <div class="bg-color"><span style="margin-left:20px">数据库信息</span></div>
+                                <div class="bg-color"><span style="margin-left:20px">业务信息</span></div>
                             </el-col>
                         </el-col>
                     </el-row>
@@ -80,11 +80,11 @@
                                 v-loading="loading"
                                 element-loading-text="加载中"
                                 @sort-change="headSort">
-                                <el-table-column sortable="custom" prop="tableSchema" label="表Schema" width="250">
+                                <el-table-column sortable="custom" prop="tableSchema" label="代码" width="250">
                                 </el-table-column>
-                                <el-table-column sortable="custom" prop="tableCname" label="表中文名称" width="250">
+                                <el-table-column sortable="custom" prop="tableCname" label="名称" width="250">
                                 </el-table-column>
-                                <el-table-column sortable="custom" prop="tableEname" label="表英文名称" width="300">
+                                <el-table-column sortable="custom" prop="tableEname" label="描述" width="300">
                                 </el-table-column>
                                 <el-table-column  prop="desp" label="说明" width="">
                                 </el-table-column>

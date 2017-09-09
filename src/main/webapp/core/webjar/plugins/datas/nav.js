@@ -24,7 +24,7 @@
 	{
 		"title": "系统资源配置",
 		"icon": " fa-edit",
-		"href": "core/WebUI/resource-collocation/resource-collocation.html"
+		"href": "core/WebUI/properties-collocation/properties-collocation.html"
 	},{
 		"title": "键值集合管理",
 		"icon": " &#xe641",
