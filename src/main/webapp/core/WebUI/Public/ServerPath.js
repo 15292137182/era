@@ -44,10 +44,10 @@ function optimizationPath(path) {
 }
 
 //服務地址--头部--调试
-var serverHead = 'http://192.168.123.205';
+var serverHead = 'http://192.168.123.205:8099';
 
 // 服務地址--头部--部署
-//var serverHead = getBPBasePath();
+// var serverHead = getBPBasePath();
 
 //完整路径
-var serverPath = serverHead + "/era/core";
+var serverPath = serverHead + "/era/sys/core";

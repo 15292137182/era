@@ -8,11 +8,11 @@ var pagingObj = (function(){
                 pageSize:pageSize,
                 pageNum:pageNum
             },
-            dataType:"jsonp",
+            dataType:"json",
             success:function(res){
                 obj.loading=false;
                 if(res.data!=null){
-                    obj.tableData = res.data.result;//数据源
+                    obj.tableData = res.data;//数据源
                     obj.allDate = Number(res.data.total);//总共多少条数据
                 }else{
                     obj.tableData = [];

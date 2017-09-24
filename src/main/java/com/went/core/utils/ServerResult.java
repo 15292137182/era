@@ -1,21 +1,16 @@
 package com.went.core.utils;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-
 import java.io.Serializable;
-import java.util.List;
 import java.util.Map;
 
-import static com.went.core.base.BaseConstants.STATUS_SUCCESS;
+import static com.went.core.constants.BaseConstants.STATUS_SUCCESS;
 
 /**
  * Service 返回的结果
  *
  * Create By HCL at 2017/7/31
  */
-public class ServiceResult<T> implements Serializable {
+public class ServerResult<T> implements Serializable {
 
   private static final long serialVersionUID = 812376774103405857L;
 
@@ -29,7 +24,7 @@ public class ServiceResult<T> implements Serializable {
    *
    * Create By HCL at 2017/8/7
    */
-  public ServiceResult() {
+  public ServerResult() {
   }
 
   /**
@@ -39,7 +34,7 @@ public class ServiceResult<T> implements Serializable {
    * @param state 状态
    * @param message 消息
    */
-  public ServiceResult(T data, int state, String message) {
+  public ServerResult(T data, int state, String message) {
     this.state = state;
     this.message = message;
     this.data = data;
@@ -77,8 +72,8 @@ public class ServiceResult<T> implements Serializable {
     this.extra = extra;
   }
 
-  public static ServiceResult Msg(int state,String message){
-    return new ServiceResult(null, state,message);
+  public static ServerResult Msg(int state, String message){
+    return new ServerResult(null, state,message);
   }
 
 //  public PageResult<Map<String, Object>> selectPage(int pageNum,int pageSize){

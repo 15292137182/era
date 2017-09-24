@@ -9,7 +9,6 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.went.core.base.BaseConstants.DELETE_FLAG;
 import static com.went.core.utils.UtilsTool.getDateTimeNow;
 import static com.went.core.utils.UtilsTool.underlineToCamel;
 

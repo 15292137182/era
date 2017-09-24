@@ -14,7 +14,7 @@ var dataBase = new Vue({
         rowObj:'',
         divIndex:'',
         editdivIndex:'',
-        url:serverPath+'/maintTable/queryPage',
+        url:serverPath+'/business/queryAll',
         delUrl:serverPath+'/maintTable/delete',
         pageSize:10,//每页显示多少条
         pageNum:1,//第几页

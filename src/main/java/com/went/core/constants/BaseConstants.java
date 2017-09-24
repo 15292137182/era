@@ -1,4 +1,4 @@
-package com.went.core.base;
+package com.went.core.constants;
 
 /**
  * 平台常量类 Create By HCL at 2017/7/31.
