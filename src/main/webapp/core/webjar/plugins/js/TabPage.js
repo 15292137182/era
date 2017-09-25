@@ -11,9 +11,9 @@ var pagingObj = (function(){
             dataType:"json",
             success:function(res){
                 obj.loading=false;
-                if(res.data!=null){
-                    obj.tableData = res.data;//数据源
-                    obj.allDate = Number(res.data.total);//总共多少条数据
+                if(res.resp.content.data.result!=null){
+                    obj.tableData = res.resp.content.data.result;//数据源
+                    obj.allDate = Number(res.resp.content.data.total);//总共多少条数据
                 }else{
                     obj.tableData = [];
                 }
