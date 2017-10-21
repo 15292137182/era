@@ -30,8 +30,8 @@ public class UtilsTool {
    * @param obj 对象
    * @return 返回
    */
-  public static boolean isValid(Object obj) {
-    return null != obj && !"".equals(obj.toString());
+  public static boolean isValid(String obj) {
+    return null != obj && !"".equals(obj);
   }
 
   public static boolean isValid(List list) {
@@ -141,7 +141,7 @@ public class UtilsTool {
   public static Set<String> collectToSet(String str) {
     Set<String> result = new HashSet<>();
     if (isValid(str)) {
-      String[] ss = str.split("[\\s;,；，]+");
+      String[] ss = str.split("[\\s]+");
       result.addAll(Arrays.asList(ss));
     }
     return result;

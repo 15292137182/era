@@ -12,15 +12,11 @@ import java.util.List;
  * @author wzp 2015年12月17日
  */
 @Mapper
-public interface BusinessMapper{
+public interface BusinessMapper {
 
-    /**
-     * 查询方法,返回记录 List 参数: entity <p> 2015年12月17日
-     */
-    List<BusinessInfo> selectAll();
-
-
-
-
+  /**
+   * 查询方法,返回记录 List 参数: entity <p> 2015年12月17日
+   */
+  List<BusinessInfo> selectAll();
 
 }

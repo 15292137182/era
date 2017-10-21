@@ -27,7 +27,7 @@
   </bean>
   <!-- mapper扫描器 -->
   <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-    <property name="basePackage" value="com.went"/>
+    <property name="basePackage" value="com.went.core"/>
     <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     <!-- mapper接口必须添加注解 -->
     <property name="annotationClass" value="org.apache.ibatis.annotations.Mapper"/>

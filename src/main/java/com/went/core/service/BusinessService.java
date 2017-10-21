@@ -3,6 +3,7 @@ package com.went.core.service;
 import com.went.core.base.BaseService;
 import com.went.core.entity.BusinessInfo;
 import com.went.core.mapper.BusinessMapper;
+import com.went.core.utils.SpringContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +18,8 @@ import java.util.List;
 @Service
 public class BusinessService implements BaseService{
 
-    @Autowired
-    BusinessMapper businessMapper;
-
     public List<BusinessInfo> selectAll(Map map) {
-
+        BusinessMapper businessMapper = SpringContextHolder.getBean("businessMapper");
         List<BusinessInfo> businessInfos = businessMapper.selectAll();
         return businessInfos;
     }

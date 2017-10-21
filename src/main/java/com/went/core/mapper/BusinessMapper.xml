@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.went.core.mapper.BusinessMapper">
     <select id="selectAll" resultType="com.went.core.entity.BusinessInfo">
         select * from era.t_business ORDER BY code DESC
