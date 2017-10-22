@@ -6,6 +6,7 @@ import com.went.core.constants.BaseConstants;
 import com.went.core.constants.Message;
 import com.went.core.constants.UrlConstants;
 import com.went.core.entity.BusinessInfo;
+import com.went.core.erabatis.center.SqlSegment;
 import com.went.core.erabatis.mapper.UsuallyMapper;
 import com.went.core.service.BusinessService;
 import com.went.core.utils.PageResult;
@@ -27,31 +28,46 @@ import java.util.Map;
 @RestController
 @RequestMapping(UrlConstants.URL_PREFIX + "/business")
 public class BusinessController {
-  @Autowired
-  BusinessService businessService;
 
   @RequestMapping("/queryAll")
   public PlatResult selectAll(@RequestParam Map<String, Object> param) {
     UsuallyMapper usuallyMapper = SpringContextHolder.getBean("usuallyMapper");
-    List<String> list = new LinkedList<>();
-    list.add("select");
-    list.add("*");
-    list.add("from");
-    list.add("era.t_business");
-    list.add("ORDER BY");
-    list.add("code");
-    list.add("DESC");
+    List<SqlSegment> list = new LinkedList<>();
+    SqlSegment select = new SqlSegment("select");
+    SqlSegment code = new SqlSegment("code");
+    SqlSegment segment = new SqlSegment(",");
+    SqlSegment name = new SqlSegment("name");
+    SqlSegment S__ = new SqlSegment(",");
+    SqlSegment desc = new SqlSegment("'desc'");
+    SqlSegment __ = new SqlSegment(",");
+    SqlSegment createUser = new SqlSegment("create_user");
+    SqlSegment from = new SqlSegment("from");
+    SqlSegment t_business = new SqlSegment("era.t_business");
+    SqlSegment ORDER_BY = new SqlSegment("order by");
+    SqlSegment code1 = new SqlSegment("code");
+    SqlSegment DESC = new SqlSegment("desc");
+    list.add(select);
+    list.add(code);
+    list.add(segment);
+    list.add(name);
+    list.add(S__);
+    list.add(desc);
+    list.add(__);
+    list.add(createUser);
+    list.add(from);
+    list.add(t_business);
+    list.add(ORDER_BY);
+    list.add(code1);
+    list.add(DESC);
     List<Map<String, Object>> maps = usuallyMapper.plainSelect(list);
-    System.out.println(maps);
     String pageNum = param.get("pageNum").toString();
     String pageSize = param.get("pageSize").toString();
     int pan = Integer.valueOf(pageNum);
     int pas = Integer.valueOf(pageSize);
     PageHelper.startPage(pan, pas);
 
-    List<BusinessInfo> businessInfos = businessService.selectAll(param);
-    PageInfo pageInfo = new PageInfo<>(businessInfos);
-    PageResult pageResult = new PageResult<>(pageInfo.getTotal(), pan, pas, businessInfos);
+    PageInfo pageInfo = new PageInfo<>(maps);
+    PageResult pageResult = new PageResult<>(pageInfo.getTotal(), pan, pas, maps);
 
     ServerResult serverResult = new ServerResult<>(pageResult, BaseConstants.STATUS_SUCCESS, Message.QUERY_SUCCESS);
     return PlatResult.success(serverResult);

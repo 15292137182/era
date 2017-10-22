@@ -3,7 +3,7 @@
 	"icon": " fa-folder-o",
 	"spread": true,
 	"children": [{
-		"title": "数据库表信息管理",
+		"title": "信息管理",
 		"icon": "&#xe641;",
 		"href": "core/WebUI/data-base/data-base-index.html"
 	}/*,{

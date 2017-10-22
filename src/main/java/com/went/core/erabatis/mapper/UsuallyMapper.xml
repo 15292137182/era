@@ -30,7 +30,7 @@
     <select id="plainSelect" resultType="hashmap">
         <foreach collection="list" item="i">
             <choose>
-                <!--<when test="i instanceof com.bcx.pcentercore.morebatis.cctv1.SqlSegment">${@com.bcx.pcentercore.utils.UtilsTool@camelToUnderline(i.segment)}</when>-->
+                <!--<when test="i instanceof com.went.core.erabatis.center.SqlSegment">${@com.went.core.utils.UtilsTool@camelToUnderline(i.segment)}</when>-->
                 <when test="i instanceof com.went.core.erabatis.center.SqlSegment">${i.segment}</when>
                 <when test="i instanceof java.util.Collection">
                     <foreach collection="i" separator="," item="item" open="(" close=")">
@@ -46,7 +46,7 @@
         <foreach collection="list" item="i">
             <choose>
                 <!--<when test="i instanceof com.bcx.pcentercore.morebatis.cctv1.SqlSegment">${@com.bcx.pcentercore.utils.UtilsTool@camelToUnderline(i.segment)}</when>-->
-                <when test="i instanceof com.went.core.erabatis.center.SqlSegment">${i.segment}</when>
+                <when test="i instanceof com.went.core.erabatis.center.SqlSegment">#{i}</when>
                 <when test="i instanceof java.util.Collection">
                     <foreach collection="i" separator="," item="item" open="(" close=")">
                         #{item}
