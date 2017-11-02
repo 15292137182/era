@@ -21,7 +21,14 @@ public interface UsuallyMapper {
   List<Map<String, Object>> plainSelect(List list);
 
 
-  //新增操作
+  /**
+   * 新增操作
+   *
+   * @param list ist
+   * @return int
+   * @Author wenTieu
+   * @Date 2017/11/2
+   */
   int plainInsert(List list);
 
   //更新操作
