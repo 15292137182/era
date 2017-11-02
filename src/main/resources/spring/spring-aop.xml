@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="loggerAspect" class="com.went.core.aspect.LoggerAspect"/>
+
+    <aop:config>
+        <!--指定切面组件，通过 ref进行关联-->
+        <aop:aspect ref="loggerAspect">
+            <!--通过method指定处理方法 -->
+            <!--通过pointcut指定切入点 -->
+            <!--within为类限定表达式 -->
+            <aop:before method="control" pointcut="within(com.went.core.controller..*)"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+    <!-- 启用aop注解 -->
+    <aop:aspectj-autoproxy/>
+</beans>
