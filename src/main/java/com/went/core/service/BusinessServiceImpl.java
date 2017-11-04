@@ -2,8 +2,9 @@ package com.went.core.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.went.core.erabatis.center.PageResult;
 import com.went.core.erabatis.center.SqlSegment;
-import com.went.core.erabatis.mapper.UsuallyMapper;
+import com.went.core.erabatis.mapper.MysqlMapper;
 import com.went.core.utils.ServerResult;
 import com.went.core.utils.SpringContextHolder;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class BusinessServiceImpl {
 
 
   public ServerResult selectAll(Map param) {
-    UsuallyMapper usuallyMapper = SpringContextHolder.getBean("usuallyMapper");
+    MysqlMapper mysqlMapper = SpringContextHolder.getBean("mysqlMapper");
     List<SqlSegment> list = new LinkedList<>();
     SqlSegment select = new SqlSegment("select");
     SqlSegment code = new SqlSegment("code");
@@ -50,7 +51,7 @@ public class BusinessServiceImpl {
     list.add(ORDER_BY);
     list.add(code1);
     list.add(DESC);
-    List<Map<String, Object>> maps = usuallyMapper.plainSelect(list);
+    List<Map<String, Object>> maps = mysqlMapper.plainSelect(list);
     String pageNum = param.get("pageNum").toString();
     String pageSize = param.get("pageSize").toString();
     int pan = Integer.valueOf(pageNum);

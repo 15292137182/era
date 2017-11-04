@@ -1,5 +1,7 @@
 package com.went.core.erabatis.component.function;
 
+import com.went.core.erabatis.center.SqlSegment;
+
 /**
  * <p>Title: Table</p>
  * <p>Description: 数据库表</p>
@@ -11,4 +13,45 @@ package com.went.core.erabatis.component.function;
  */
 public class Table {
 
+  private String tableName;
+  private String schema;
+  private SqlSegment sqlSegment;
+
+  public Table() {
+  }
+
+  public Table(String tableName) {
+    this.tableName = tableName;
+    sqlSegment = new SqlSegment(getTableName());
+  }
+
+  public Table(String schema, String tableName) {
+    this.tableName = tableName;
+    this.schema = schema;
+  }
+
+  public String getTableName() {
+    return tableName;
+  }
+
+  public void setTableName(String tableName) {
+    this.tableName = tableName;
+    sqlSegment = new SqlSegment(getTableName());
+  }
+
+  public String getSchema() {
+    return schema;
+  }
+
+  public void setSchema(String schema) {
+    this.schema = schema;
+  }
+
+  public SqlSegment getSqlSegment() {
+    return sqlSegment;
+  }
+
+  public void setSqlSegment(SqlSegment sqlSegment) {
+    this.sqlSegment = sqlSegment;
+  }
 }

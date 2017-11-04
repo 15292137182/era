@@ -1,5 +1,6 @@
 package com.went.core.erabatis.app;
 
+import com.went.core.base.support.BeanInterface;
 import com.went.core.erabatis.actiondata.DeleteAction;
 import com.went.core.erabatis.actiondata.InsertAction;
 import com.went.core.erabatis.actiondata.QueryAction;
@@ -16,7 +17,7 @@ import java.util.Map;
 /**
  * <p>Title: EraBatis</p>
  * <p>Description: 封装mybatis SQL语句</p>
- * <p>Copyright: Shanghai era GMP Information of management platform, Inc. Copyright(c) 2017</p>
+ * <p>Copyright: Shanghai era Information of management platform, Inc. Copyright(c) 2017</p>
  *
  * @author Wen TieHu
  * @version 1.0
@@ -62,53 +63,51 @@ public interface EraBatis {
    * @param alias       实体类属性名称
    */
   Collection<Field> getColumnByAlias(Class entityClass, Collection<String> alias);
-//
-//  /**
-//   * 插入一个实体类
-//   *
-//   * @param entity 要插入的实体类
-//   * @return 返回插入的结果标识
-//   */
-////  @Deprecated
-//  <T extends BeanInterface<T>> int insertEntity(T entity);
-//
-//  /**
-//   * 根据主键删除一个实体类
-//   *
-//   * @param entity 要更新的实体类
-//   */
-////  @Deprecated
-//  <T extends BeanInterface<T>> int deleteEntity(T entity);
-//
-//  /**
-//   * 根据主键更新一个实体类
-//   *
-//   * @param entity 要更新的实体类
-//   */
-////  @Deprecated
-//  <T extends BeanInterface<T>> int updateEntity(T entity);
-//
-//  /**
-//   * 根据主键更新一个实体类
-//   *
-//   * @param entity 要更新的实体类
-//   */
-////  @Deprecated
-//  <T extends BeanInterface<T>> int updateEntity(T entity, Object excluded);
-//
-//
-//  /**
-//   * 根据主键更新一个实体类
-//   *
-//   * @param entity 要更新的实体类
-//   */
-////  @Deprecated
-//  <T extends BeanInterface<T>> int updateEntity(T entity, Collection excluded);
+
+  /**
+   * 插入一个实体类
+   *
+   * @param entity 要插入的实体类
+   * @return 返回插入的结果标识
+   */
+  <T extends BeanInterface<T>> int insertEntity(T entity);
+
+  /**
+   * 根据主键删除一个实体类
+   *
+   * @param entity 要更新的实体类
+   */
+  <T extends BeanInterface<T>> int deleteEntity(T entity);
+
+  /**
+   * 根据主键更新一个实体类
+   *
+   * @param entity 要更新的实体类
+   */
+  <T extends BeanInterface<T>> int updateEntity(T entity);
+
+  /**
+   * 根据主键更新一个实体类
+   *
+   * @param entity 要更新的实体类
+   */
+  <T extends BeanInterface<T>> int updateEntity(T entity, Object excluded);
+
+
+  /**
+   * 根据主键更新一个实体类
+   *
+   * @param entity 要更新的实体类
+   * @param excluded 排除的字段
+   * @return T
+   */
+  <T extends BeanInterface<T>> int updateEntity(T entity, Collection excluded);
 
   /**
    * 单表查询
    *
    * @param entity 要查询的实体类class
+   * @return QueryAction
    */
   QueryAction select(Class entity);
 
