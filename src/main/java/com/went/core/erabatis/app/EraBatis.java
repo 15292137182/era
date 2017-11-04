@@ -151,8 +151,6 @@ public interface EraBatis {
   QueryAction select(Class primary,
                      Class secondary, String relationPrimary, String relationSecondary, Collection<Field> fields, JoinType joinType);
 
-  QueryAction selectStatement();
-
   /**
    * 更新操作（未设置条件）
    *
@@ -185,6 +183,11 @@ public interface EraBatis {
    * @return 未设置条件的删除语句对象
    */
   DeleteAction delete(Class entity);
+
+
+  QueryAction updateStatement();
+
+  QueryAction selectStatement();
 
   InsertAction insertStatement();
 

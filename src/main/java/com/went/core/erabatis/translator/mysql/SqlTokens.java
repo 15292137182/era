@@ -1,4 +1,6 @@
-package com.went.core.erabatis.center;
+package com.went.core.erabatis.translator.mysql;
+
+import com.went.core.erabatis.center.SqlSegment;
 
 /**
  * <p>Title: this SqlTokens </p>
