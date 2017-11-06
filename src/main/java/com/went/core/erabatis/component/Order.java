@@ -1,4 +1,4 @@
-package com.went.core.erabatis.component.function;
+package com.went.core.erabatis.component;
 
 
 import com.went.core.erabatis.phantom.FieldSource;

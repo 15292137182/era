@@ -1,11 +1,11 @@
-package com.went.core.erabatis.component.function;
+package com.went.core.erabatis.component;
 
 import com.went.core.erabatis.center.SqlSegment;
 
 /**
  * <p>Title: Table</p>
  * <p>Description: 数据库表</p>
- * <p>Copyright: Shanghai era GMP Information of management platform, Inc. Copyright(c) 2017</p>
+ * <p>Copyright: Shanghai era Information of management platform, Inc. Copyright(c) 2017</p>
  *
  * @author Wen TieHu
  * @version 1.0

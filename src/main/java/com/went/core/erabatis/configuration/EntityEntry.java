@@ -2,7 +2,7 @@ package com.went.core.erabatis.configuration;
 
 
 import com.went.core.base.support.BeanInterface;
-import com.went.core.erabatis.component.function.Field;
+import com.went.core.erabatis.component.Field;
 import com.went.core.erabatis.phantom.TableSource;
 
 import java.util.List;

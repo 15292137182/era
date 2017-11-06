@@ -6,9 +6,11 @@ import com.went.core.erabatis.actiondata.QueryAction;
 import com.went.core.erabatis.actiondata.UpdateAction;
 import com.went.core.erabatis.app.EraBatis;
 import com.went.core.erabatis.center.SqlSegment;
+import com.went.core.erabatis.phantom.AliasedColumn;
 import com.went.core.erabatis.phantom.SqlComponentTranslator;
 import com.went.core.utils.SpringContextHolder;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -32,7 +34,19 @@ public class Translator implements SqlComponentTranslator {
      */
     @Override
     public LinkedList translateQueryAction(QueryAction queryAction, LinkedList linkedList) {
-        appendSql(SqlTokens.SELECT,linkedList);
+        appendSql(SqlTokens.SELECT, linkedList);
+        if (Boolean.TRUE == queryAction.getDistinct()) {
+            appendSql(SqlTokens.DISTINCT, linkedList);
+        }
+        return null;
+    }
+
+    public LinkedList translateColumns(QueryAction queryAction, LinkedList linkedList) {
+        Iterator<AliasedColumn> iterator = queryAction.getAliasedColumns().iterator();
+        while (iterator.hasNext()) {
+            AliasedColumn next = iterator.next();
+
+        }
         return null;
     }
 
@@ -72,7 +86,7 @@ public class Translator implements SqlComponentTranslator {
         return null;
     }
 
-    private LinkedList appendSql(SqlSegment sqlSegment, LinkedList list){
+    private LinkedList appendSql(SqlSegment sqlSegment, LinkedList list) {
         list.add(sqlSegment);
         return list;
     }

@@ -4,7 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.went.core.erabatis.app.EraBatis;
 import com.went.core.erabatis.center.PageResult;
-import com.went.core.erabatis.component.function.Order;
+import com.went.core.erabatis.component.Order;
 import com.went.core.erabatis.phantom.AliasedColumn;
 import com.went.core.erabatis.phantom.Condition;
 import com.went.core.erabatis.phantom.FieldSource;

@@ -6,7 +6,7 @@ import com.went.core.erabatis.actiondata.InsertAction;
 import com.went.core.erabatis.actiondata.QueryAction;
 import com.went.core.erabatis.actiondata.UpdateAction;
 import com.went.core.erabatis.component.constant.JoinType;
-import com.went.core.erabatis.component.function.Field;
+import com.went.core.erabatis.component.Field;
 import com.went.core.erabatis.phantom.FieldSource;
 import com.went.core.erabatis.phantom.TableSource;
 
