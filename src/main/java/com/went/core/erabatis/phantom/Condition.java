@@ -19,11 +19,4 @@ public interface Condition<T extends Condition<T>> {
     setNot(!isNot());
     return (T) this;
   }
-
-  /**
-   * 获得sql片段
-   *
-   * @return String
-   */
-  String getConditionSqlFragment();
 }

@@ -24,6 +24,9 @@
     <pagehelper-version>4.2.1</pagehelper-version>
     <javax-sevlet-api-version>3.1.0</javax-sevlet-api-version>
     <shiro-version>1.4.0</shiro-version>
+    <dom4j-version>1.6.1</dom4j-version>
+    <quartz-version>2.3.0</quartz-version>
+    <nutz-version>1.r.63</nutz-version>
 
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -181,6 +184,21 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
       <version>${spring-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>${dom4j-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.quartz-scheduler</groupId>
+      <artifactId>quartz</artifactId>
+      <version>${quartz-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.nutz</groupId>
+      <artifactId>nutz</artifactId>
+      <version>${nutz-version}</version>
     </dependency>
 
 
